@@ -18,7 +18,7 @@ def take_action_screenshot(action, x, y):
     screenshot = pyautogui.screenshot()
     
     # Resize the screenshot to 720p (1280x720)
-    screenshot = screenshot.resize((1280, 720), Image.ANTIALIAS)
+    screenshot = screenshot.resize((1280, 720), Image.LANCZOS)
     
     # Compress the image
     screenshot = screenshot.convert('RGB')
