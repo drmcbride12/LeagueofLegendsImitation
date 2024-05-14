@@ -13,7 +13,12 @@ def take_action_screenshot(action, x, y):
     filename = f"{timestamp},{action},{x},{y}.jpg"  # Change file extension to .jpg
     # Save the screenshot in the screenshots folder
     filepath = os.path.join(screenshot_dir, filename)
+    
+    # Take the screenshot
     screenshot = pyautogui.screenshot()
+    
+    # Resize the screenshot to 720p (1280x720)
+    screenshot = screenshot.resize((1280, 720), Image.ANTIALIAS)
     
     # Compress the image
     screenshot = screenshot.convert('RGB')
