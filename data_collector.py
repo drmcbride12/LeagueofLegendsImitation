@@ -22,7 +22,7 @@ def take_action_screenshot(action, x, y):
     
     # Compress the image
     screenshot = screenshot.convert('RGB')
-    screenshot.save(filepath, optimize=True, quality=30)  # Adjust the quality as needed
+    screenshot.save(filepath, optimize=True, quality=50)  # Adjust the quality as needed
     
     print(f"Saved: {filepath}")
 
