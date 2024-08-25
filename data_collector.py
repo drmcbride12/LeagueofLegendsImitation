@@ -21,12 +21,12 @@ def take_action_screenshot(action, x, y):
     # Take the screenshot
     screenshot = pyautogui.screenshot()
     
-    # Resize the screenshot to 720p (1280x720)
-    screenshot = screenshot.resize((512, 512), Image.LANCZOS)
+    # Resize the screenshot to (128x128)
+    screenshot = screenshot.resize((128, 128), Image.LANCZOS)
     
-    # Compress the image
+    # Convert the image to RGB and save it without compression
     screenshot = screenshot.convert('RGB')
-    screenshot.save(filepath, optimize=True, quality=90)  # Adjust the quality as needed
+    screenshot.save(filepath)  # Save without optimize or quality adjustments
     
     print(f"Saved: {filepath}")
 
