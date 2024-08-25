@@ -14,7 +14,7 @@ last_key_press_time = {}
 
 def take_action_screenshot(action, x, y):
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S%f")[:-3]  # Milliseconds precision
-    filename = f"{timestamp},{action},{x},{y}.jpg"  # Change file extension to .jpg
+    filename = f"{timestamp},{action},{x},{y}.png"  # Change file extension to .png
     # Save the screenshot in the screenshots folder
     filepath = os.path.join(screenshot_dir, filename)
     
@@ -24,9 +24,8 @@ def take_action_screenshot(action, x, y):
     # Resize the screenshot to (128x128)
     screenshot = screenshot.resize((128, 128), Image.LANCZOS)
     
-    # Convert the image to RGB and save it without compression
-    screenshot = screenshot.convert('RGB')
-    screenshot.save(filepath)  # Save without optimize or quality adjustments
+    # Save the image as PNG without compression
+    screenshot.save(filepath, format="PNG")  # PNG format is lossless by default
     
     print(f"Saved: {filepath}")
 
